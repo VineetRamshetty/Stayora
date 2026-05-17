@@ -80,6 +80,11 @@ app.use((req, res, next)=>{
     return next();
 });
 
+//root page is not yet created(temporary redirection)
+app.get("/", (req, res)=>{
+    res.redirect("/listings");
+});
+
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
