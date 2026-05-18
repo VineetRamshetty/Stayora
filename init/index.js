@@ -3,7 +3,7 @@ const Listing=require("../models/listing.js");
 const Review=require("../models/review.js");
 const initData=require("./data.js");
 
-const MONGO_URL="mongodb://127.0.0.1:27017/stayora";
+const DB_URL=process.env.ATLASDB_URL;
 
 main().then((res)=>{
     console.log("connected to DB");
@@ -12,7 +12,7 @@ main().then((res)=>{
 });
 
 async function main(){
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(DB_URL);
 };
 
 const initDB=async ()=>{
